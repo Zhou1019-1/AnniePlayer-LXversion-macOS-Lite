@@ -31,7 +31,7 @@
 ## 治理确认
 
 - [ ] 未直接推送 `main`，未自行创建/推送 tag 或 Release。
-- [ ] 未加入私钥、证书、Token、密码、用户数据或 >50 MiB 新二进制。
+- [ ] 未加入私钥、证书、Token、密码、用户数据或 >90 MiB 新二进制。
 - [ ] 本 PR 不要求 PR CI 发布 Release；后续发布仅经人工 Environment 审批生成 Draft。
 - [ ] 已按 `CONTRIBUTING.md` 的标准交付模板补齐适用信息。
 - [ ] 明白最终 Publish / Latest 仅由仓库 owner 决定。

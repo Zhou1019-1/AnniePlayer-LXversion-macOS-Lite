@@ -84,5 +84,5 @@ body:
       options:
         - label: 本交付不代表允许发布；发布仅经人工 Environment 审批形成 Draft，owner 最终 Publish。
           required: true
-        - label: 内容已脱敏，未向源码仓新增 >50 MiB 二进制。
+        - label: 内容已脱敏，未向源码仓新增 >90 MiB 二进制。
           required: true

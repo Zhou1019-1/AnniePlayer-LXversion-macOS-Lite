@@ -60,5 +60,5 @@ body:
           required: true
         - label: 发布候选只能经人工 Environment 审批进入 Draft，最终 Publish / Latest 由 owner 决定。
           required: true
-        - label: 未在请求或产物说明中包含秘密，且未向仓库新增 >50 MiB 二进制。
+        - label: 未在请求或产物说明中包含秘密，且未向仓库新增 >90 MiB 二进制。
           required: true
