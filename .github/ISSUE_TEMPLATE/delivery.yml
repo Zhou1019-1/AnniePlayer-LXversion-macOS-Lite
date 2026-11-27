@@ -1,0 +1,88 @@
+name: 标准交付登记
+description: 登记源码、人工二进制、构建 artifacts 或发布交接
+title: "[Delivery] "
+labels: ["delivery"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        主要联系渠道：QQ 群 1023637098。GitHub 记录是审核依据，QQ 沟通不能替代 PR、Environment 审批或 owner 最终 Publish。敏感信息请私聊，不要填写在本表单。
+  - type: dropdown
+    id: delivery_type
+    attributes:
+      label: 交付类型
+      options:
+        - 源码 PR
+        - 构建 artifacts
+        - 人工二进制
+        - 发布交接（仅 Draft）
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 产品与版本
+      description: 产品固定为 macOS Lite；版本使用 vX.Y.Z 或 proposed。
+      placeholder: macOS Lite / v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 来源仓库与完整源码 commit SHA
+    validations:
+      required: true
+  - type: input
+    id: baseline
+    attributes:
+      label: 迁移基线完整 SHA / 导入日期
+      description: 非迁移交付可填 N/A。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 目标系统、架构、变更范围与构建命令
+      description: Lite 构建必须包含 -D LITE；无构建则填 N/A。
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 依赖官方 URL、版本与 SHA256
+      description: 无外部依赖则填 N/A。
+    validations:
+      required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: 产物名称、获取位置与 SHA256
+      description: 无产物则填 N/A；不要把二进制直接附到源码仓。
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: 已执行 / 未执行验证及结果
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: 已知问题、与人工二进制的差异及回退方式
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: QQ 联系人
+      description: 只填昵称或群名片，不填密码、Token 等敏感信息。
+  - type: checkboxes
+    id: release
+    attributes:
+      label: 发布边界
+      options:
+        - label: 本交付不代表允许发布；发布仅经人工 Environment 审批形成 Draft，owner 最终 Publish。
+          required: true
+        - label: 内容已脱敏，未向源码仓新增 >90 MiB 二进制。
+          required: true

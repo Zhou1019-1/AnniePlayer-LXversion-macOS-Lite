@@ -1,0 +1,64 @@
+name: Bug 报告
+description: 报告 macOS Lite 问题；安全漏洞请按 SECURITY.md 私下报告
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请勿填写私钥、Token、密码或用户隐私。源码迁移快照不代表已发布版本，人工二进制与 Git 源码可能存在基线差异。
+  - type: input
+    id: version
+    attributes:
+      label: 版本或源码状态
+      description: 填写 vX.Y.Z、源码快照或未发布人工构建。
+      placeholder: 未发布源码快照 / v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: 完整 commit / 基线 SHA
+      description: 使用人工二进制时同时说明其对应源码是否未知。
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: macOS 版本与架构
+      placeholder: macOS 13.5 / arm64 或 x86_64
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 从启动到问题出现的最小步骤。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为与已知差异
+      description: 如仅人工二进制出现而源码状态未知，请明确指出。
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 脱敏日志
+      render: text
+      description: 不要粘贴秘密、完整用户目录或个人数据。
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已脱敏，且未在此报告秘密或用户数据。
+          required: true

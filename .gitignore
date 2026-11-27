@@ -1,0 +1,56 @@
+# macOS / 编辑器
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.idea/
+.vscode/
+*.xcuserstate
+xcuserdata/
+
+# 构建与测试产物
+/build/
+/dist/
+/macos/build*/
+/macos/dist/
+DerivedData/
+*.log
+*.dSYM/
+*.xcarchive/
+
+# 安装包、镜像和大二进制（受控分发，不入库）
+*.dmg
+*.pkg
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.iso
+*.img
+*.qcow2
+*.vmdk
+
+# 本地环境和秘密
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.mobileprovision
+id_rsa
+id_ed25519
+credentials
+credentials.*
+secrets
+secrets.*
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*~

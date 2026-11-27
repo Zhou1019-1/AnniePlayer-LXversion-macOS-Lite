@@ -1,0 +1,64 @@
+name: 构建 / 发布请求
+description: 请求 macOS Lite 构建验证或进入受控发布流程
+title: "[Build/Release] "
+labels: ["build", "release"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        贡献者与 AI 不自行创建 tag 或 Release。PR CI 未来只产生 artifacts；发布必须经人工 Environment 审批且仅生成 Draft，owner 最终 Publish。
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: 请求类型
+      options:
+        - 构建 artifacts
+        - 发布评估（不是直接发布）
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 建议版本
+      description: Lite 独立版本，格式 vX.Y.Z；仅构建可填 proposed。
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: 完整源码 commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: build
+    attributes:
+      label: 构建命令、系统与架构
+      description: 必须明确 -D LITE，并列出依赖官方 URL / SHA256。
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: 测试证据与产物 SHA256
+      description: 未构建产物时填写 N/A，不得省略已执行的验证。
+    validations:
+      required: true
+  - type: textarea
+    id: differences
+    attributes:
+      label: 人工二进制与 Git 源码差异 / 已知问题
+      description: numb 补齐对应源码、构建脚本和依赖 URL 的后续 PR 也应在此关联。
+    validations:
+      required: true
+  - type: checkboxes
+    id: governance
+    attributes:
+      label: 治理确认
+      options:
+        - label: 我理解本请求不授权直接推送 main、创建 tag/Release 或自动 Publish。
+          required: true
+        - label: 发布候选只能经人工 Environment 审批进入 Draft，最终 Publish / Latest 由 owner 决定。
+          required: true
+        - label: 未在请求或产物说明中包含秘密，且未向仓库新增 >90 MiB 二进制。
+          required: true
